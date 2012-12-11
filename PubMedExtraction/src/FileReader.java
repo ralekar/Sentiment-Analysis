@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import edu.stanford.nlp.ling.HasWord;
+import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 
 
@@ -294,8 +296,8 @@ public class FileReader extends JFrame implements ActionListener{
 
 		 for(String sentence:sentenceList) {
 		   String taggedSentence=this.getTextReader().Tags(sentence);
-		   //System.out.println(taggedSentence);
-			 WriteFile(taggedSentence);
+		   System.out.println(taggedSentence);
+		   WriteFile(taggedSentence);
 		 }
 	 }
 	 
@@ -318,7 +320,8 @@ public class FileReader extends JFrame implements ActionListener{
 	    		//true = append file
 	    		FileWriter fileWritter = new FileWriter(file.getAbsolutePath(),true);
 	    	        BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-	    	         bufferWritter.write("<Document>"+"<mainArticle>"+getMainArticle()+"</mainArticle>"+"<refArticle>"+getReferencedArticle()+"</refArticle>"+"<tagged>"+taggedSentence+"</tagged>"+"</Document>"+"\n");
+	    	        System.out.println(taggedSentence);
+	    	        bufferWritter.write(taggedSentence+"\n");
 	    	        bufferWritter.close();
 	                
 			

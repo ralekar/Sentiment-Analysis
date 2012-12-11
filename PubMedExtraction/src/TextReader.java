@@ -9,6 +9,9 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+import edu.stanford.nlp.ling.HasWord;
+import edu.stanford.nlp.ling.Sentence;
+import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
 import java.io.*;
@@ -44,8 +47,8 @@ public class TextReader {
 
 	public String  Tags(String text)
 	{
-			String taggedSentence=tagger.tagString(text);
-			
+			String taggedSentence=tagger.tagTokenizedString(text);
+
 			return taggedSentence;
 	}
 		
